@@ -26,37 +26,6 @@ Ejemplo:
     Salida:
         [False, True, True, False, True, False, False]
 
-
-Enunciat:
-Utilitzant un depurador de codi per a Python, corregir els errors en les
-funcions 'is_prime(num)' i 'check_primes(nums)'.
-
-Utilitzant un depurador de codi per a Python, corregir els errors a les
-funcions 'is_prime(num)' i 'check_primes(nums)'.
-
-La funció 'is_prime(num)' és utilitzada dins de 'check_primes(nums)' per
-determinar si un nombre és primer.
-
-La funció anomenada 'check_primes(nums)' accepta una llista de nombres enters
-com a entrada i torna una llista de valors booleans, indicant si cada
-número a la llista és primer o no.
-
-Per depurar el codi, podeu utilitzar pdb o altres eines de depuració
-externes.
-
-
-Paràmetres:
-     nums: una llista de nombres enters.
-
-Retorn:
-     Una llista de valors booleans, indicant si cada número a la llista és primer o no.
-
-Exemple:
-     Entrada:
-         nums = [1, 5, 11, 12, 13, 14, 15]
-     Sortida:
-         [False, True, True, False, True, False, False]
-
 """
 
 
@@ -64,24 +33,21 @@ from typing import List
 
 
 def isprime(num):
-    #Find the error and rewrite the correct code. 
-    if num < 1:
+    if num < 2: # Número inferiores a dos no son primos
         return False
-    for i in range(2, num):
-        if num % i != 0:
+    for i in range(2, int(num**0.5)+1): # Comprobamos los divisores de dos
+        if num % i == 0:
             return False
     return True
 
 
 def check_primes(nums: List[int]) -> List[bool]:
-    #Find the error and rewrite the correct code. 
     results = []
-    for i in range(1, len(nums)):
-        results.append(isprime(i))
+    for num in nums:
+        results.append(isprime(num))
     return results
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
-# Si vols provar el teu codi, descomenta les línies següents i executa l'script
 #numbers_list = [1, 5, 11, 12, 13, 14, 15]
 #print(check_primes(numbers_list))
